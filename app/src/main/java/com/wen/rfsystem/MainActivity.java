@@ -1,6 +1,9 @@
 package com.wen.rfsystem;
-/*
+/**
 * 訂位系統專題  博文
+*
+*
+*
 *
 * */
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        
+
     }
 }
