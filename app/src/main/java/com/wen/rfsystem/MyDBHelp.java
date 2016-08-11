@@ -20,8 +20,8 @@ public class MyDBHelp extends SQLiteOpenHelper {
                                               " tel VARCHAR)";
 
 //建構方法
-    public MyDBHelp(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public MyDBHelp(Context context) {
+        super(context,"customer", null, 1);
 
     }
 

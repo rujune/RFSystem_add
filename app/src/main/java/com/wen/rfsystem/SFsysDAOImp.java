@@ -1,8 +1,10 @@
 package com.wen.rfsystem;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,16 @@ import java.util.List;
 public class SFsysDAOImp implements SFsysDAO{
 
     SQLiteDatabase db;
+
+    public SFsysDAOImp(Context context){
+
+        MyDBHelp helper = new MyDBHelp(context);
+        db = helper.getWritableDatabase();
+
+
+    }
+
+
 
 
     @Override
@@ -50,6 +62,8 @@ public class SFsysDAOImp implements SFsysDAO{
 
     }
 
+
+
     @Override
     public void jasonsave() {
 
@@ -61,23 +75,7 @@ public class SFsysDAOImp implements SFsysDAO{
     }
 
     @Override
-    public List getAllcustomer() {
-        ArrayList<customer> mylist = new ArrayList<>();
-
-        Cursor c = db.rawQuery("Select * from student", null);
-        if (c.moveToFirst())
-        {
-            do {
-                customer t = new customer();
-                mylist.add(t);
-            } while (c.moveToNext());
-        }
-
-        return mylist;
-    }
-
-    @Override
-    public List getreserve(String day) {
+    public List getAllStudent() {
         return null;
     }
 

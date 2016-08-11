@@ -9,9 +9,13 @@ import java.util.List;
  */
 public interface SFsysDAO {
 
-    public void sqladd(customer person);  //SQLite新增刪除修改
-    public void sqldel(int id);
-    public void sqlupdata(int id);
+    public void cusadd(customer person);  //顧客資料SQLite新增刪除修改
+    public void cusdel(int id);
+    public void cusupdata(int id);
+
+    public void resadd(reserve reserve);  //訂位資料SQLite新增刪除修改
+    public void resdel(int id);
+    public void resupdata(int id);
 
 
     public void jasonsave();              //讀寫JSON (用匯出/儲存/備分)

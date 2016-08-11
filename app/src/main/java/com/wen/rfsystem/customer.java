@@ -1,5 +1,7 @@
 package com.wen.rfsystem;
 
+import java.util.Date;
+
 /**
  * Created by wen on 2016/8/6.
  *會員資料CLASS
@@ -34,7 +36,7 @@ public class customer {
 
     int VIP;           //VIP等級
     String name;       //姓名 生日 地址 電話 備註
-    String birthday;
+    Date birthday;
     String address;
     String tel;
     String PS;

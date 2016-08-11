@@ -1,5 +1,7 @@
 package com.wen.rfsystem;
 
+import java.util.Date;
+
 /**
  *
  * Created by Student on 2016/8/8.
@@ -16,8 +18,7 @@ public class reserve {
     boolean checkout;   //入場.出場
     boolean checkin;
 
-    String reservetime;  //訂位日期
-    String time;         //訂位時間
+    Date reservetime;  //訂位日期訂位時間
     String PS;           //備註
     String service;    //訂位人員
 

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
+    SFsysDAO dao = new SFsysDAOImp(MainActivity.this);
 
 
 
