@@ -5,30 +5,55 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.Date;
+
 /**
  * Created by Student on 2016/8/8.
- * 照搬080802的git 範例    (未完成!)
+ * 搬080802的git 範例    (未完成!)
 看起來老師是參考  http://www.phperz.com/article/16/0409/195720.html
  */
 public class MyDBHelp extends SQLiteOpenHelper {
 
-    final static String DB_Name = "customer.sqlite";
+    final static String DB_Name = "SFSdb.sqlite";
     final static int VERSION = 1;
-    final static String CREATE_TABLE_SQL =
-            "CREATE  TABLE main.student (_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ," +
-                                              " name VARCHAR,addr VARCHAR," +
-                                              " tel VARCHAR)";
+
+    //CREATE customer SQL
+    final static String CREATE_TABLE_SQLcus = " CREATE  TABLE main.customer ("+
+                                            "id INTEGER PRIMARY KEY  NOT NULL ,"+
+                                            "name VARCHAR,"+
+                                            "sex INTEGER,"+
+                                            "awkward INTEGER,"+
+                                            "awkreason VARCHAR,"+
+                                            "VIP INTEGER,"+
+                                            "birthday DATETIME,"+
+                                            "address VARCHAR,"+
+                                            "tel VARCHAR,"+
+                                            "PS VARCHAR)";
+
+    //CREATE reserve SQL
+    final static String CREATE_TABLE_SQLres = "CREATE  TABLE main.reserve ("+
+                                            "id INTEGER PRIMARY KEY  NOT NULL  UNIQUE ,"+  //UNIQUE?
+                                            "customer INTEGER,"+    //用customer ID
+                                            "adult INTEGER,"+
+                                            "child INTEGER, "+
+                                            "checkout BOOL,"+      //BOOL?
+                                            "checkin BOOL, "+
+                                            "reservertime DATETIME,"+
+                                            "PS VARCHAR,"+
+                                            "service VARCHAR)";
+
 
 //建構方法
     public MyDBHelp(Context context) {
         super(context,"customer", null, 1);
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "DB is onCreate");
-        db.execSQL(CREATE_TABLE_SQL);
+        Log.d("DB", "cusDB is onCreate");
+        db.execSQL(CREATE_TABLE_SQLcus);
+        Log.d("DB", "resDB is onCreate");
+        db.execSQL(CREATE_TABLE_SQLres);
     }
 
     @Override
@@ -36,7 +61,9 @@ public class MyDBHelp extends SQLiteOpenHelper {
 
     }
 }
-/*   高效入門範例
+
+
+/*   範例
      private static MyDBHelper instance = null;
      public static MyDBHelper getInstance(Context ctx){
         if (instance==null){

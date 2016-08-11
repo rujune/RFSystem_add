@@ -11,21 +11,44 @@ public class customer {
 
     //建構
     public customer(
-        int id,
         int sex,
         int awkward,
         String awkreason,
         int VIP,
         String name,
-        String birthday,
+        Date birthday,
         String address,
         String tel,
         String PS )
     {
-
+        this.sex=sex;
+        this.awkward=awkward;
+        this.awkreason=awkreason;
+        this.VIP=VIP;
+        this.name=name;
+        this.birthday=birthday;
+        this.address=address;
+        this. tel=tel;
+        this.PS=PS;
     }
 
-
+    public customer(
+            int id,
+            String name,
+            String tel
+ )
+    {
+        this.id=id;
+        this.sex=1;
+        this.awkward=0;
+        this.awkreason="";
+        this.VIP=1;
+        this.name=name;
+        this.birthday=null;
+        this.address="";
+        this. tel=tel;
+        this.PS="";
+    }
 
 
     int id;            //會員編號.SQLite的Key值
