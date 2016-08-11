@@ -12,7 +12,7 @@ public class reserve {
 
 //建構
     public reserve(
-            customer customer,
+            int customer,
             int adult,
             int child,
             boolean checkout,
@@ -36,7 +36,7 @@ public class reserve {
 
 
     int id;   //訂位編號
-    customer customer;  //顧客資料   int customerID
+    int customer;  //顧客資料   int customerID
     int adult;   //幾大幾小
     int child;
     boolean checkout;   //入場.出場

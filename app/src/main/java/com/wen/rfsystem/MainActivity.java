@@ -5,6 +5,7 @@ package com.wen.rfsystem;
 * */
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,10 +16,17 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> disp = new ArrayList<>();
     ListView lv;
     ArrayAdapter<String> adapter;
+
+    public MainActivity() {
+        super();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
     SFsysDAO dao = new SFsysDAOImp(MainActivity.this);
 
@@ -26,7 +34,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 }
+
+
+
+
 
 
 

@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by Student on 2016/8/8.
  * 搬080802的git 範例    (未完成!)
-看起來老師是參考  http://www.phperz.com/article/16/0409/195720.html
+  http://www.phperz.com/article/16/0409/195720.html
  */
 public class MyDBHelp extends SQLiteOpenHelper {
 
@@ -44,7 +44,7 @@ public class MyDBHelp extends SQLiteOpenHelper {
 
 
 //建構方法
-    public MyDBHelp(Context context) {
+   public MyDBHelp(Context context) {
         super(context,"customer", null, 1);
     }
 
