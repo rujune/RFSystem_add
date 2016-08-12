@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * Created by Student on 2016/8/8.
- * 搬080802的git 範例    (未完成!)
+ * 搬080802的git 範例
   http://www.phperz.com/article/16/0409/195720.html
  */
 public class MyDBHelp extends SQLiteOpenHelper {

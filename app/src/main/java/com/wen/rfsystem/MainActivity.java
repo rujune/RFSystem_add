@@ -68,6 +68,7 @@ for (Student s : mylist)
         lv = (ListView) findViewById(R.id.listView);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
 @Override
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent it = new Intent(MainActivity.this, DetailActivity.class);

@@ -36,10 +36,7 @@ public class SFsysDAOImp implements SFsysDAO{
         cv.put("address", person.address);
         cv.put("PS", person.PS);
 
-
         long id = db.insert("customer", null, cv);// 執行SQL 語句
-
-
         //研究一下ID到底是資料庫自動增加還是要程式端判斷與寫入
 
     }
@@ -55,9 +52,7 @@ public class SFsysDAOImp implements SFsysDAO{
     public void cusupdata(customer person) {
 
         // db.execSQL("Update student set addr = '" + s.addr + "' ,tel='" + s.tel + "' Where name='" + s.name + "'");
-        db.execSQL("Update customer set addr='"+
-
-                "'name+ person.name"+
+        db.execSQL("Update customer set name='"+ person.name +
                 "'address'" + person.address+
                 "'tel'" + person.tel+
                 "'awkward'" + person.awkward+
@@ -71,28 +66,50 @@ public class SFsysDAOImp implements SFsysDAO{
 
 
 
-
+//-------------------------------------------
 
 
 
     @Override
     public void resadd(reserve reserve) {
 
+        ContentValues cv = new ContentValues();
+
+        //cv.put("id",  reserve.id);
+        cv.put("customer",  reserve.customer);
+        cv.put("adult", reserve.adult);
+        cv.put("child", reserve.child);
+        cv.put("checkout", reserve.checkout);
+        cv.put("checkin", reserve.checkin);
+        cv.put("reservetime", reserve.reservetime.toString());   //DATA不能直接傳入?
+        cv.put("service", reserve.service);
+        cv.put("PS", reserve.PS);
+
+        long id = db.insert("reserve", null, cv);// 執行SQL 語句
     }
 
     @Override
     public void resdel(reserve reserve) {
-
+        db.execSQL("Delete from customer where id='" + reserve.id + "'");
     }
 
     @Override
     public void resupdata(reserve reserve) {
-
+        // db.execSQL("Update student set addr = '" + s.addr + "' ,tel='" + s.tel + "' Where name='" + s.name + "'");
+        db.execSQL("Update customer set customer='"+reserve.customer+
+                "'adult'" + reserve.adult+
+                "'child'" + reserve.child+
+                "'checkout'" + reserve.checkout+
+                "'checkin'" + reserve.checkin+
+                "'reservetime'" + reserve.reservetime.toString()+
+                "'service'" + reserve.service+
+                "'PS'" +reserve.PS +
+                "' Where id='" + reserve.id + "'" );
     }
 
 
 
-    @Override
+    @Override   //備分用  晚點再寫
     public void jasonsave() {
 
     }
