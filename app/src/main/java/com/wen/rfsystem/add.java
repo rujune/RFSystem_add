@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static java.lang.Integer.parseInt;
+
 public class add extends AppCompatActivity {
 
     @Override
@@ -17,49 +19,20 @@ public class add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-
-
-
-
     }
 
     public void click_add(View v)
     {
-        /*
-        int id;            //會員編號.SQLite的Key值
-        int sex;           //性別
-        int awkward;       //黑名單
-        String awkreason;  //黑名單理由
-        int VIP;           //VIP等級
-        String name;       //姓名 生日 地址 電話 備註
-        Date birthday;
-        String address;
-        String tel;
-        String PS;
-
-            int resid;   //訂位編號
-        int customer;  //顧客資料   int customerID
-        int adult;   //幾大幾小
-        int child;
-        boolean checkout;   //入場.出場
-        boolean checkin;
-        Date reservetime;  //訂位日期訂位時間
-        String resPS;         //備註
-        String service;    //訂位人員
-
-
-
-         */
-        EditText nameed = (EditText) findViewById(R.id.nameEDText);
+         EditText nameed = (EditText) findViewById(R.id.nameEDText);
        //EditText awkward = (EditText) findViewById(R.id.);
-       // EditText awkreason = (EditText) findViewById(R.id.);
-        //EditText VIP = (EditText) findViewById(R.id.);
-        //EditText birthday = (EditText) findViewById(R.id.);
-       //EditText address = (EditText) findViewById(R.id.);
-        EditText tel = (EditText) findViewById(R.id.telEDText);
-        EditText PS = (EditText) findViewById(R.id.PSEDText);
+       //EditText awkreason = (EditText) findViewById(R.id.);
+       //EditText VIP = (EditText) findViewById(R.id.);
+         EditText adultEDText = (EditText) findViewById(R.id.adultEDText);
+         EditText childEDText = (EditText) findViewById(R.id.childEDText);
+         EditText tel = (EditText) findViewById(R.id.telEDText);
+         EditText PS = (EditText) findViewById(R.id.PSEDText);
 
-        String n = ed.getText().toString();
+         //String n = ed.getText().toString();
 
 
 
@@ -73,9 +46,8 @@ public class add extends AppCompatActivity {
         }
 
 
-
         SFsysDAO dao = new SFsysDAOImp(add.this);
-        dao.cusadd(new customer(1,
+        long cusid=dao.cusadd(new customer(1,
                                 0,
                                 "",
                                 0,
@@ -86,18 +58,19 @@ public class add extends AppCompatActivity {
                                 PS.getText().toString())
                     );
 
-        dao.resadd(new reserve(0,
-
-                "",
-                0,
-                nameed.getText().toString(),
-                dt,
-                "",
-                tel.getText().toString(),
-                PS.getText().toString())
-        );
 
 
+        dao.resadd(new reserve(
+                                cusid,
+                                parseInt( adultEDText.getText().toString()),
+                                parseInt( childEDText.getText().toString()) ,
+                                false,
+                                false,
+                                dt,
+                                "",
+                                PS.getText().toString()
+                                )
+                  );
     }
 
 

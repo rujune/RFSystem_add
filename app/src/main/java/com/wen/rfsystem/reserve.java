@@ -16,8 +16,7 @@ public class reserve {
 
 //建構
     public reserve(
-
-            int customer,
+            long customer,
             int adult,
             int child,
             boolean checkout,
@@ -40,8 +39,8 @@ public class reserve {
 
 
 
-    int id;   //訂位編號
-    int customer;  //顧客資料   int customerID
+    long id;   //訂位編號
+    long customer;  //顧客資料   int customerID
     int adult;   //幾大幾小
     int child;
     boolean checkout;   //入場.出場
@@ -49,5 +48,6 @@ public class reserve {
     Date reservetime;  //訂位日期訂位時間
     String PS;         //備註
     String service;    //訂位人員
+
 
 }

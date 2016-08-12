@@ -167,14 +167,15 @@
             <Button
                 android:layout_width="110dp"
                 android:layout_height="60dp"
-                android:text="訂位"
+                android:text="ADD"
                 android:id="@+id/button6"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:onClick="click_add" />
 
             <Button
                 android:layout_width="110dp"
                 android:layout_height="60dp"
-                android:text="就位"
+                android:text="NULL"
                 android:id="@+id/button7"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
@@ -183,77 +184,13 @@
             <Button
                 android:layout_width="110dp"
                 android:layout_height="60dp"
-                android:text="離開"
+                android:text="NULL"
                 android:id="@+id/button14"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:text="會員資料"
-                android:id="@+id/button8"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:text="當日現況"
-                android:id="@+id/button9"
-                android:layout_alignBottom="@+id/button8"
-                android:layout_centerHorizontal="true" />
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:text="候補"
-                android:id="@+id/button10"
-                android:layout_alignBottom="@+id/button9"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:text="黑名單"
-                android:id="@+id/button11"
-                android:layout_below="@+id/button8"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:text="編輯"
-                android:id="@+id/button12"
-                android:layout_alignTop="@+id/button11"
-                android:layout_alignLeft="@+id/button9"
-                android:layout_alignStart="@+id/button9" />
-
-            <Button
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:text="刪除"
-                android:id="@+id/button13"
-                android:layout_alignTop="@+id/button12"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

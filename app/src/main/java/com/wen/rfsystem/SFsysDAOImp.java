@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.util.Log;
 
 import java.text.ParseException;
@@ -27,7 +26,7 @@ public class SFsysDAOImp implements SFsysDAO{
     }
 
     @Override
-    public void cusadd(customer person) {
+    public long cusadd(customer person) {
 
         ContentValues cv = new ContentValues();
         cv.put("name",  person.name);
@@ -41,20 +40,16 @@ public class SFsysDAOImp implements SFsysDAO{
 
         long id = db.insert("customer", null, cv);// 執行SQL 語句
         //研究一下ID到底是資料庫自動增加還是要程式端判斷與寫入
-
+         return id;
     }
 
     @Override
     public void cusdel(customer person) {
-
         db.execSQL("Delete from customer where id='" + person.id + "'");
-
     }
 
     @Override
     public void cusupdata(customer person) {
-
-        // db.execSQL("Update student set addr = '" + s.addr + "' ,tel='" + s.tel + "' Where name='" + s.name + "'");
         db.execSQL("Update customer set name='"+ person.name +
                 "'address'" + person.address+
                 "'tel'" + person.tel+
@@ -68,13 +63,12 @@ public class SFsysDAOImp implements SFsysDAO{
 
 
 
-
 //-------------------------------------------
 
 
 
     @Override
-    public void resadd(reserve reserve) {
+    public long resadd(reserve reserve) {
 
         ContentValues cv = new ContentValues();
 
@@ -89,6 +83,7 @@ public class SFsysDAOImp implements SFsysDAO{
         cv.put("PS", reserve.PS);
 
         long id = db.insert("reserve", null, cv);// 執行SQL 語句
+        return id;
     }
 
     @Override

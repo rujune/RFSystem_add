@@ -35,7 +35,7 @@ public class customer {
     }
 
 
-    int id;            //會員編號.SQLite的Key值
+    long id;            //會員編號.SQLite的Key值
     int sex;           //性別
     int awkward;       //黑名單
     String awkreason;  //黑名單理由
