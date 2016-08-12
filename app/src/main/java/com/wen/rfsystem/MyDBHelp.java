@@ -25,7 +25,7 @@ public class MyDBHelp extends SQLiteOpenHelper {
                                             "awkward INTEGER,"+
                                             "awkreason VARCHAR,"+
                                             "VIP INTEGER,"+
-                                            "birthday DATETIME,"+
+                                            "birthday DATE,"+
                                             "address VARCHAR,"+
                                             "tel VARCHAR,"+
                                             "PS VARCHAR)";

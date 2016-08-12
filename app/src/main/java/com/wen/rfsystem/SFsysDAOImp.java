@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -149,6 +150,7 @@ public class SFsysDAOImp implements SFsysDAO{
                     dt = sdf.parse(c.getString(6)+c.getString(7));
                 } catch (ParseException e) {
                     e.printStackTrace();
+                    Log.d("ERR","日期轉換錯誤~");
                 }
                 reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
                         (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
