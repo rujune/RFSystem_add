@@ -24,7 +24,7 @@ public interface SFsysDAO {
 
 
 
-    public List getAllStudent();
+    public List getAllreserve();
 
 
 }

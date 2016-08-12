@@ -120,8 +120,36 @@ public class SFsysDAOImp implements SFsysDAO{
     }
 
     @Override
-    public List getAllStudent() {
-        return null;
+    public List getAllreserve() {
+        ArrayList<reserve> mylist = new ArrayList<>();
+
+        Cursor c = db.rawQuery("Select * from reserve", null);
+        if (c.moveToFirst())
+        {
+            do {
+                reserve r = new reserve(c.getInt(0),c.getInt(1),c.getInt(2), c.getInt(3),
+                        c.getBlob(4),c.getBlob(5),
+                        c.getString(6),
+                        c.getString(7),c.getString(8), c.getString(9));
+                mylist.add(r);
+            } while (c.moveToNext());
+        }
+/*
+                                            "id INTEGER PRIMARY KEY  NOT NULL  UNIQUE ,"+  //UNIQUE?
+                                            "customer INTEGER,"+    //用customer ID
+                                            "adult INTEGER,"+
+                                            "child INTEGER, "+
+                                            "checkout BOOL,"+      //BOOL?
+                                            "checkin BOOL, "+
+                                            "reservertime DATETIME,"+
+                                            "PS VARCHAR,"+
+                                            "service VARCHAR)";
+
+ */
+
+
+
+        return mylist;
     }
 
 

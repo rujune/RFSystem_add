@@ -10,16 +10,15 @@ import java.util.Date;
 public class customer {
 
     //建構
-    public customer(
-        int sex,
-        int awkward,
-        String awkreason,
-        int VIP,
-        String name,
-        Date birthday,
-        String address,
-        String tel,
-        String PS )
+    public customer(int sex,
+                    int awkward,
+                    String awkreason,
+                    int VIP,
+                    String name,
+                    Date birthday,
+                    String address,
+                    String tel,
+                    String PS )
     {
         this.sex=sex;
         this.awkward=awkward;
@@ -32,31 +31,11 @@ public class customer {
         this.PS=PS;
     }
 
-    public customer(
-            int id,
-            String name,
-            String tel
- )
-    {
-        this.id=id;
-        this.sex=1;
-        this.awkward=0;
-        this.awkreason="";
-        this.VIP=1;
-        this.name=name;
-        this.birthday=null;
-        this.address="";
-        this. tel=tel;
-        this.PS="";
-    }
-
 
     int id;            //會員編號.SQLite的Key值
     int sex;           //性別
     int awkward;       //黑名單
-
     String awkreason;  //黑名單理由
-
     int VIP;           //VIP等級
     String name;       //姓名 生日 地址 電話 備註
     Date birthday;
