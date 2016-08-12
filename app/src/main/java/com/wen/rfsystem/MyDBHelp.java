@@ -36,9 +36,10 @@ public class MyDBHelp extends SQLiteOpenHelper {
                                             "customer INTEGER,"+    //用customer ID
                                             "adult INTEGER,"+
                                             "child INTEGER, "+
-                                            "checkout BOOL,"+      //BOOL?
-                                            "checkin BOOL, "+
-                                            "reservertime DATETIME,"+
+                                            "checkout INTEGER,"+      //BOOL?
+                                            "checkin INTEGER, "+
+                                            "reserverDate DATE,"+
+                                            "reservertime TIME,"+
                                             "PS VARCHAR,"+
                                             "service VARCHAR)";
 

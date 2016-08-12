@@ -16,7 +16,7 @@ public class reserve {
 
 //建構
     public reserve(
-            int id,
+
             int customer,
             int adult,
             int child,
@@ -26,7 +26,7 @@ public class reserve {
             String PS,
             String service
     ){
-        this.id=id;
+
         this.customer=customer;
         this.adult=adult;
         this.child=child;

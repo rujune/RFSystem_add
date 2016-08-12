@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -124,13 +126,34 @@ public class SFsysDAOImp implements SFsysDAO{
         ArrayList<reserve> mylist = new ArrayList<>();
 
         Cursor c = db.rawQuery("Select * from reserve", null);
+
+/*  JAVA轉換日期範例
+        //欲轉換的日期字串
+        String dateString = "20010-03-02 20:25:58";
+        //設定日期格式
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //進行轉換
+        Date date = sdf.parse(dateString);
+        System.out.println(date);
+
+*/
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
         if (c.moveToFirst())
         {
             do {
-                reserve r = new reserve(c.getInt(0),c.getInt(1),c.getInt(2), c.getInt(3),
-                        c.getBlob(4).,c.getBlob(5),
-                        c.getString(6),
-                        c.getString(7),c.getString(8), c.getString(9));
+                Date dt = null;
+                try {
+                    dt = sdf.parse(c.getString(6)+c.getString(7));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
+                        (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
+                         dt,
+                         c.getString(8),c.getString(9)  );
                 mylist.add(r);
                 //45   bool->int?
                 //6    String->Date
@@ -138,16 +161,17 @@ public class SFsysDAOImp implements SFsysDAO{
             } while (c.moveToNext());
         }
 /*
-                                            "id INTEGER PRIMARY KEY  NOT NULL  UNIQUE ,"+  //UNIQUE?
+                                             "CREATE  TABLE main.reserve ("+
+                                            "id INTEGER PRIMARY KEY  NOT NULL AUTOINCREMENT   UNIQUE ,"+  //UNIQUE?
                                             "customer INTEGER,"+    //用customer ID
                                             "adult INTEGER,"+
                                             "child INTEGER, "+
-                                            "checkout BOOL,"+      //BOOL?
-                                            "checkin BOOL, "+
-                                            "reservertime DATETIME,"+
+                                            "checkout INTEGER,"+      //BOOL?
+                                            "checkin INTEGER, "+
+                                            "reserverDate DATE,"+
+                                            "reservertime TIME,"+
                                             "PS VARCHAR,"+
                                             "service VARCHAR)";
-
  */
 
 

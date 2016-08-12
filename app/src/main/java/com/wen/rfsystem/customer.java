@@ -10,7 +10,9 @@ import java.util.Date;
 public class customer {
 
     //建構
-    public customer(int sex,
+    public customer(
+
+            int sex,
                     int awkward,
                     String awkreason,
                     int VIP,
@@ -20,6 +22,7 @@ public class customer {
                     String tel,
                     String PS )
     {
+
         this.sex=sex;
         this.awkward=awkward;
         this.awkreason=awkreason;
