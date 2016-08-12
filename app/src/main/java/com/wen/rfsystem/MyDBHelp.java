@@ -19,7 +19,7 @@ public class MyDBHelp extends SQLiteOpenHelper {
 
     //CREATE customer SQL
     final static String CREATE_TABLE_SQLcus = " CREATE  TABLE main.customer ("+
-                                            "id INTEGER PRIMARY KEY  NOT NULL ,"+
+                                            "id INTEGER PRIMARY KEY  AUTOINCREMENT NOT NULL ,"+
                                             "name VARCHAR,"+
                                             "sex INTEGER,"+
                                             "awkward INTEGER,"+
@@ -32,7 +32,7 @@ public class MyDBHelp extends SQLiteOpenHelper {
 
     //CREATE reserve SQL
     final static String CREATE_TABLE_SQLres = "CREATE  TABLE main.reserve ("+
-                                            "id INTEGER PRIMARY KEY  NOT NULL  UNIQUE ,"+  //UNIQUE?
+                                            "id INTEGER PRIMARY KEY  NOT NULL AUTOINCREMENT   UNIQUE ,"+  //UNIQUE?
                                             "customer INTEGER,"+    //用customer ID
                                             "adult INTEGER,"+
                                             "child INTEGER, "+

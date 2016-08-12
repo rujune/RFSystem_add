@@ -128,10 +128,13 @@ public class SFsysDAOImp implements SFsysDAO{
         {
             do {
                 reserve r = new reserve(c.getInt(0),c.getInt(1),c.getInt(2), c.getInt(3),
-                        c.getBlob(4),c.getBlob(5),
+                        c.getBlob(4).,c.getBlob(5),
                         c.getString(6),
                         c.getString(7),c.getString(8), c.getString(9));
                 mylist.add(r);
+                //45   bool->int?
+                //6    String->Date
+
             } while (c.moveToNext());
         }
 /*
