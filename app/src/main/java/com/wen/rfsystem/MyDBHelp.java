@@ -18,8 +18,8 @@ public class MyDBHelp extends SQLiteOpenHelper {
     final static int VERSION = 1;
 
     //CREATE customer SQL
-    final static String CREATE_TABLE_SQLcus = " CREATE  TABLE main.customer ("+
-                                            "id INTEGER PRIMARY KEY  AUTOINCREMENT NOT NULL ,"+
+    final static String CREATE_TABLE_SQLcus = " CREATE  TABLE customer ("+
+                                            "_id INTEGER PRIMARY KEY  AUTOINCREMENT ,"+
                                             "name VARCHAR,"+
                                             "sex INTEGER,"+
                                             "awkward INTEGER,"+
@@ -31,8 +31,9 @@ public class MyDBHelp extends SQLiteOpenHelper {
                                             "PS VARCHAR)";
 
     //CREATE reserve SQL
-    final static String CREATE_TABLE_SQLres = "CREATE  TABLE main.reserve ("+
-                                            "id INTEGER PRIMARY KEY  NOT NULL AUTOINCREMENT   UNIQUE ,"+  //UNIQUE?
+    final static String CREATE_TABLE_SQLres = "CREATE  TABLE reserve ("+
+                                            "_id INTEGER PRIMARY KEY  AUTOINCREMENT,"+  //UNIQUE?
+
                                             "customer INTEGER,"+    //用customer ID
                                             "adult INTEGER,"+
                                             "child INTEGER, "+
@@ -46,7 +47,8 @@ public class MyDBHelp extends SQLiteOpenHelper {
 
 //建構方法
    public MyDBHelp(Context context) {
-        super(context,"customer", null, 1);
+        super(context,"myDB", null, 1);
+
     }
 
     @Override

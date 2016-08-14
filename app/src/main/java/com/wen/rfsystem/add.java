@@ -17,7 +17,7 @@ public class add extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.add);
 
     }
 
@@ -36,14 +36,16 @@ public class add extends AppCompatActivity {
 
 
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date dt = null;
         try {
-            dt = sdf.parse("2016-08-22 12:00:00");
+            dt = sdf.parse("2016/08/22 12:00:00");
         } catch (ParseException e) {
             e.printStackTrace();
             Log.d("ERR","日期轉換錯誤~");
         }
+
+
 
 
         SFsysDAO dao = new SFsysDAOImp(add.this);
@@ -77,7 +79,13 @@ public class add extends AppCompatActivity {
 
 
 
-
+    public String getDateTime(){
+        SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        Date date = new Date();
+        String strDate = sdFormat.format(date);
+        //System.out.println(strDate);
+        return strDate;
+    }
 
 
 }

@@ -45,7 +45,7 @@ public class SFsysDAOImp implements SFsysDAO{
 
     @Override
     public void cusdel(customer person) {
-        db.execSQL("Delete from customer where id='" + person.id + "'");
+        db.execSQL("Delete from customer where id='" + person._id + "'");
     }
 
     @Override
@@ -58,7 +58,7 @@ public class SFsysDAOImp implements SFsysDAO{
                 "'birthday'" + person.birthday.toString()+
                 "'address'" + person.address+
                 "'PS'" +person.PS +
-                "' Where id='" + person.id + "'" );
+                "' Where id='" + person._id + "'" );
     }
 
 
@@ -88,7 +88,7 @@ public class SFsysDAOImp implements SFsysDAO{
 
     @Override
     public void resdel(reserve reserve) {
-        db.execSQL("Delete from customer where id='" + reserve.id + "'");
+        db.execSQL("Delete from customer where id='" + reserve._id + "'");
     }
 
     @Override
@@ -102,7 +102,7 @@ public class SFsysDAOImp implements SFsysDAO{
                 "'reservetime'" + reserve.reservetime.toString()+
                 "'service'" + reserve.service+
                 "'PS'" +reserve.PS +
-                "' Where id='" + reserve.id + "'" );
+                "' Where id='" + reserve._id + "'" );
     }
 
 

@@ -39,7 +39,7 @@ public class reserve {
 
 
 
-    long id;   //訂位編號
+    long _id;   //訂位編號
     long customer;  //顧客資料   int customerID
     int adult;   //幾大幾小
     int child;
