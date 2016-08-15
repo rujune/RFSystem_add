@@ -69,21 +69,39 @@ public class SFsysDAOImp implements SFsysDAO{
     @Override
     public long resadd(reserve reserve) {
 
-        ContentValues cv = new ContentValues();
+       int out=(reserve.checkout)? 1: 0;
+       int in=(reserve.checkin)? 1:0;
 
-        //cv.put("id",  reserve.id);
+        ContentValues cv = new ContentValues();
         cv.put("customer",  reserve.customer);
         cv.put("adult", reserve.adult);
         cv.put("child", reserve.child);
-        cv.put("checkout", reserve.checkout);
-        cv.put("checkin", reserve.checkin);
+        cv.put("checkout",out) ;
+        cv.put("checkin",in);
         cv.put("reservetime", reserve.reservetime.toString());   //DATA不能直接傳入?
-        cv.put("service", reserve.service);
         cv.put("PS", reserve.PS);
+        cv.put("service", reserve.service);
+/*
+CREATE_TABLE_SQLres = "CREATE  TABLE reserve ("+
+                                            "_id INTEGER PRIMARY KEY  AUTOINCREMENT,"+  //UNIQUE?
+                                            "customer INTEGER,"+    //用customer ID
+                                            "adult INTEGER,"+
+                                            "child INTEGER, "+
+                                            "checkout INTEGER,"+      //BOOL?
+                                            "checkin INTEGER, "+
+                                            "reservetime DATE,"+
+                                            "PS VARCHAR,"+
+                                            "service VARCHAR)";
+
+
+
+
+ */
 
         long id = db.insert("reserve", null, cv);// 執行SQL 語句
         return id;
     }
+
 
     @Override
     public void resdel(reserve reserve) {

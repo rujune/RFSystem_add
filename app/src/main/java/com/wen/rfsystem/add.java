@@ -49,7 +49,7 @@ public class add extends AppCompatActivity {
 
 
         SFsysDAO dao = new SFsysDAOImp(add.this);
-        long cusid=dao.cusadd(new customer(1,
+        customer a=new customer(1,
                                 0,
                                 "",
                                 0,
@@ -57,22 +57,28 @@ public class add extends AppCompatActivity {
                                 dt,
                                 "",
                                 tel.getText().toString(),
-                                PS.getText().toString())
-                    );
+                                PS.getText().toString()
+        );
+        Log.d("customer",a.toString());
+        long cusid=dao.cusadd(a);
+        Log.d("cusid", String.valueOf(cusid));
 
 
-
-        dao.resadd(new reserve(
+        reserve b = new reserve(
                                 cusid,
-                                parseInt( adultEDText.getText().toString()),
-                                parseInt( childEDText.getText().toString()) ,
+                                2,
+                                1,//parseInt( childEDText.getText().toString()) ,
                                 false,
                                 false,
                                 dt,
-                                "",
-                                PS.getText().toString()
-                                )
-                  );
+                                PS.getText().toString(),
+                                "LO"
+        );
+
+        Log.d("reserve",b.toString());
+        long resid =dao.resadd(b);
+        Log.d("resid", String.valueOf(resid));
+
     }
 
 

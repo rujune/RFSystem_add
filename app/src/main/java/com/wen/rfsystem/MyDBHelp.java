@@ -33,16 +33,17 @@ public class MyDBHelp extends SQLiteOpenHelper {
     //CREATE reserve SQL
     final static String CREATE_TABLE_SQLres = "CREATE  TABLE reserve ("+
                                             "_id INTEGER PRIMARY KEY  AUTOINCREMENT,"+  //UNIQUE?
-
                                             "customer INTEGER,"+    //用customer ID
                                             "adult INTEGER,"+
                                             "child INTEGER, "+
                                             "checkout INTEGER,"+      //BOOL?
                                             "checkin INTEGER, "+
-                                            "reserverDate DATE,"+
-                                            "reservertime TIME,"+
+                                            "reservetime DATE,"+
                                             "PS VARCHAR,"+
                                             "service VARCHAR)";
+
+
+
 
 
 //建構方法
