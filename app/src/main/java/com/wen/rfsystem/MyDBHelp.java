@@ -38,7 +38,7 @@ public class MyDBHelp extends SQLiteOpenHelper {
                                             "child INTEGER, "+
                                             "checkout INTEGER,"+      //BOOL?
                                             "checkin INTEGER, "+
-                                            "reservetime DATE,"+
+                                            "reservetime  DATE,"+
                                             "PS VARCHAR,"+
                                             "service VARCHAR)";
 
