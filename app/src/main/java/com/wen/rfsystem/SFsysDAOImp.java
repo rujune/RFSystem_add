@@ -127,18 +127,6 @@ public class SFsysDAOImp implements SFsysDAO{
 
         Cursor c = db.rawQuery("Select * from reserve", null);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-/*
-CREATE_TABLE_SQLres = "CREATE  TABLE reserve ("+
-                                           0 "_id INTEGER PRIMARY KEY  AUTOINCREMENT,"+  //UNIQUE?
-                                           1 "customer INTEGER,"+    //用customer ID
-                                            2"adult INTEGER,"+
-                                           3 "child INTEGER, "+
-                                          4  "checkout INTEGER,"+      //BOOL?
-                                           5 "checkin INTEGER, "+
-                                            6"reservetime  DATE,"+
-                                           7 "PS VARCHAR,"+
-                                          8  "service VARCHAR)";
- */
 
         if (c.moveToFirst())
         {
@@ -150,33 +138,76 @@ CREATE_TABLE_SQLres = "CREATE  TABLE reserve ("+
                     e.printStackTrace();
                     Log.d("ERR","日期轉換錯誤~");
                 }
+
+
+
                 reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
                         (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
                          dt,
                          c.getString(7),c.getString(8)  );
+                r._id=c.getInt(0);
                 mylist.add(r);
-
-
             } while (c.moveToNext());
         }
-/*
-                                             "CREATE  TABLE main.reserve ("+
-                                            "id INTEGER PRIMARY KEY  NOT NULL AUTOINCREMENT   UNIQUE ,"+  //UNIQUE?
-                                            "customer INTEGER,"+    //用customer ID
-                                            "adult INTEGER,"+
-                                            "child INTEGER, "+
-                                            "checkout INTEGER,"+      //BOOL?
-                                            "checkin INTEGER, "+
-                                            "reserverDate DATE,"+
-                                            "reservertime TIME,"+
-                                            "PS VARCHAR,"+
-                                            "service VARCHAR)";
- */
-
-
-
         return mylist;
     }
 
+    @Override
+    public List getAllcuserve() {
+        ArrayList<customer> mylist = new ArrayList<>();
+        Cursor c = db.rawQuery("Select * from customer", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        if (c.moveToFirst())
+        {
+            do {
+                Date dt = null;
+                try {
+                    dt = sdf.parse(c.getString(6));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Log.d("ERR","日期轉換錯誤~");
+                }
 
+                customer person = new customer(
+                                            c.getInt(2),
+                                            c.getInt(3) ,
+                                            c.getString(4) ,
+                                            c.getInt(5) ,
+                                            c.getString(1) ,
+                                            dt ,
+                                            c.getString(7) ,
+                                            c.getString(8),
+                                            c.getString(9)
+
+                );
+
+                person._id=c.getInt(0);
+                mylist.add(person);
+            } while (c.moveToNext());
+        }
+        return mylist;
+    }
+
+/*
+                                            0"_id INTEGER PRIMARY KEY  AUTOINCREMENT ,"+
+                                            1"name VARCHAR,"+
+                                            2"sex INTEGER,"+
+                                            3"awkward INTEGER,"+
+                                            4"awkreason VARCHAR,"+
+                                            5"VIP INTEGER,"+
+                                            6"birthday DATE,"+
+                                            7"address VARCHAR,"+
+                                            8"tel VARCHAR,"+
+                                            9"PS VARCHAR)";
+
+
+  int awkward,
+                    String awkreason,
+                    int VIP,
+                    String name,
+                    Date birthday,
+                    String address,
+                    String tel,
+                    String PS )
+ */
 }

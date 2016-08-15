@@ -25,6 +25,7 @@ public interface SFsysDAO {
 
 
     public List getAllreserve();
+    public List getAllcuserve();
 
 
 }
