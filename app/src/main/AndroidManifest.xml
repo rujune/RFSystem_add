@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".add" />
+
         <activity android:name=".resDetail" />
         <activity android:name=".cusDetail"></activity>
     </application>
