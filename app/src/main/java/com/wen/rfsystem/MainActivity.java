@@ -3,6 +3,7 @@ package com.wen.rfsystem;
 * 訂位系統專題  博文
  *
 * */
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,27 +13,47 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
     ArrayList<String> disp = new ArrayList<>();
     ListView lv;
     ArrayAdapter<String> adapter;
+    TextView textDate;
+    private DatePickerDialog datePickerDialog;
 
     public MainActivity() {
         super();
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        GregorianCalendar calendar = new GregorianCalendar();
+         textDate = (TextView) findViewById(R.id.datetext);
+        // 實作DatePickerDialog的onDateSet方法，設定日期後將所設定的日期show在textDate上
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            //將設定的日期顯示出來
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                textDate.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+            }
+        },calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
 
 
+
+        // listview
         SFsysDAO dao = new SFsysDAOImp(MainActivity.this);
         List<reserve> mylist = dao.getAllreserve();
         for (reserve s : mylist)
@@ -97,7 +118,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public void setDate(View v) {
+        datePickerDialog.show();
+    }
 
 
 

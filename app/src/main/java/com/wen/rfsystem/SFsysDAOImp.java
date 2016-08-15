@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 /**
  * Created by wen on 2016/8/7.
  */
@@ -39,7 +38,7 @@ public class SFsysDAOImp implements SFsysDAO{
         cv.put("PS", person.PS);
 
         long id = db.insert("customer", null, cv);// 執行SQL 語句
-        //研究一下ID到底是資料庫自動增加還是要程式端判斷與寫入
+        //研究一下ID資料庫自動增加怎麼寫
          return id;
     }
 
