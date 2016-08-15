@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -40,13 +41,20 @@ public class MainActivity extends AppCompatActivity {
 
         GregorianCalendar calendar = new GregorianCalendar();
          textDate = (TextView) findViewById(R.id.datetext);
+
+        Calendar mCal = Calendar.getInstance();
+        String dateformat = "yyyy/MM/dd";
+        SimpleDateFormat df = new SimpleDateFormat(dateformat);
+        String today = df.format(mCal.getTime());
+        textDate.setText(today);
+
         // 實作DatePickerDialog的onDateSet方法，設定日期後將所設定的日期show在textDate上
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             //將設定的日期顯示出來
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                textDate.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
+                textDate.setText(year + "/" + (monthOfYear+1) + "/" + dayOfMonth);
             }
         },calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
