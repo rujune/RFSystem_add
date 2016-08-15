@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface SFsysDAO {
 
-    public long cusadd(customer person);  //顧客資料SQLite新增刪除修改
+    public long cusadd(customer person);  //顧客資料SQLite新增 刪除 修改
     public void cusdel(customer person);
     public void cusupdata(customer person);
 
-    public long resadd(reserve reserve);  //訂位資料SQLite新增刪除修改
+    public long resadd(reserve reserve);  //訂位資料SQLite新增 刪除 修改
     public void resdel(reserve reserve);
     public void resupdata(reserve reserve);
 
@@ -24,8 +24,8 @@ public interface SFsysDAO {
 
 
 
-    public List getAllreserve();
-    public List getAllcuserve();
+    public List getAllreserve();   //傳回所有訂位資料
+    public List getAllcuserve();   //傳回所有顧客資料
 
 
 }

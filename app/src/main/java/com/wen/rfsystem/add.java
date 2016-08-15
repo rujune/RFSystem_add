@@ -24,16 +24,10 @@ public class add extends AppCompatActivity {
     public void click_add(View v)
     {
          EditText nameed = (EditText) findViewById(R.id.nameEDText);
-       //EditText awkward = (EditText) findViewById(R.id.);
-       //EditText awkreason = (EditText) findViewById(R.id.);
-       //EditText VIP = (EditText) findViewById(R.id.);
          EditText adultEDText = (EditText) findViewById(R.id.adultEDText);
          EditText childEDText = (EditText) findViewById(R.id.childEDText);
          EditText tel = (EditText) findViewById(R.id.telEDText);
          EditText PS = (EditText) findViewById(R.id.PSEDText);
-
-         //String n = ed.getText().toString();
-
 
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -45,19 +39,16 @@ public class add extends AppCompatActivity {
             Log.d("ERR","日期轉換錯誤~");
         }
 
-
-
-
         SFsysDAO dao = new SFsysDAOImp(add.this);
-        customer a=new customer(1,
-                                0,
-                                "",
-                                0,
-                                nameed.getText().toString(),
-                                dt,
-                                "",
-                                tel.getText().toString(),
-                                PS.getText().toString()
+        customer a=new customer(1,   //性別
+                                0,   //黑名單
+                                "",  //黑名單理由
+                                0,   //VIP
+                                nameed.getText().toString(), //姓名
+                                dt,   //生日
+                                "",   //地址
+                                tel.getText().toString(),//電話
+                                PS.getText().toString()   //備註
         );
         Log.d("customer",a.toString());
         long cusid=dao.cusadd(a);
@@ -65,14 +56,14 @@ public class add extends AppCompatActivity {
 
 
         reserve b = new reserve(
-                                cusid,
-                                2,
-                                1,//parseInt( childEDText.getText().toString()) ,
-                                false,
-                                false,
-                                dt,
-                                PS.getText().toString(),
-                                "LO"
+                                cusid,  //顧客編號
+                                parseInt( adultEDText.getText().toString()),     //幾大
+                                parseInt( childEDText.getText().toString()),//幾小  parseInt( childEDText.getText().toString()) ,
+                                false,// 已離開
+                                false,// 已進入
+                                dt, //訂位時間
+                                PS.getText().toString(), //備註
+                                "LO"  //訂位輸入人員
         );
 
         Log.d("reserve",b.toString());

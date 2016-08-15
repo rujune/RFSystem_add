@@ -8,8 +8,7 @@ import java.util.Date;
  *
  */
 public class customer {
-
-    //建構
+ //建構
     public customer(
 
                     int sex,
@@ -34,8 +33,7 @@ public class customer {
         this.PS=PS;
     }
 
-
-    public long _id;            //會員編號.SQLite的Key值
+    public long _id;           //會員編號.SQLite的Key值
     public int sex;           //性別
     public int awkward;       //黑名單
     public String awkreason;  //黑名單理由
